@@ -1,4 +1,5 @@
 import { useState } from "react"
+import RegisterForm from "./layouts/RegisterForm"
 
 function App() {
   const [dark, setDark] = useState(false)
@@ -9,18 +10,8 @@ function App() {
         Hello world!
       </h1>
       <input type="checkbox" className="toggle" checked={dark} onChange={e=>{setDark(e.target.checked)}} />
-
       <hr />
-      <div className="flex gap-2">
-
-        <button className="btn">Button</button>
-        <button className="btn btn-neutral">Neutral</button>
-        <button className="btn btn-primary">Primary</button>
-        <button className="btn btn-secondary">Secondary</button>
-        <button className="btn btn-accent">Accent</button>
-        <button className="btn btn-ghost">Ghost</button>
-        <button className="btn btn-link">Link</button>
-      </div>
+      <RegisterForm />
     </div>
   )
 }
