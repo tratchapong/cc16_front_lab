@@ -7,7 +7,7 @@ export default function RegisterForm() {
     firstname: '',
     email: '',
     password: '',
-    consfirmPassword: ''
+    confirmPassword: ''
   })
 
   const hdlChangeInput = e => {
@@ -21,7 +21,7 @@ export default function RegisterForm() {
     } catch(err) {
       console.log(err.message)
     }
-
+    
   }
 
   return (
