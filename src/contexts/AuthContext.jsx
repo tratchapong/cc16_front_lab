@@ -4,7 +4,7 @@ import {useState, createContext, useEffect} from 'react'
 const AuthContext = createContext()
 
 function AuthContextProvider(props) {
-  const [user, setUser] = useState({ id: 1})
+  const [user, setUser] = useState(null)
 
   useEffect( ()=>{
     const run = async () => {
