@@ -1,16 +1,20 @@
 import { useState } from "react"
-import RegisterForm from "./layouts/RegisterForm"
-import LoginForm from "./layouts/LoginForm"
 import useAuth from "./hooks/useAuth"
 import AppRouter from "./routes/AppRouter"
 
 
 function App() {
-  const {user, setUser} = useAuth()
+  const {loading} = useAuth()
   const [dark, setDark] = useState(false)
 
+  if(loading) {
+    return (
+      <span className="loading loading-ring loading-lg scale-150"></span>
+    )
+  }
+
   return (
-    <div className="min-h-screen flex flex-col gap-3" data-theme={dark ? 'dark': 'cupcake'}>
+    <div className="min-h-screen flex flex-col gap-3" >
       <AppRouter />
     </div>
   )
