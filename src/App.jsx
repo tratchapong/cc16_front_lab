@@ -1,7 +1,11 @@
 import { useState } from "react"
 import RegisterForm from "./layouts/RegisterForm"
+import LoginForm from "./layouts/LoginForm"
+import useAuth from "./hooks/useAuth"
+
 
 function App() {
+  const {user, setUser} = useAuth()
   const [dark, setDark] = useState(false)
 
   return (
@@ -11,7 +15,8 @@ function App() {
       </h1>
       <input type="checkbox" className="toggle" checked={dark} onChange={e=>{setDark(e.target.checked)}} />
       <hr />
-      <RegisterForm />
+      {/* <RegisterForm /> */}
+      <LoginForm />
     </div>
   )
 }
