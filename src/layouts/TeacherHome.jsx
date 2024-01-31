@@ -46,7 +46,7 @@ function TeacherHome() {
     <div className='flex flex-col gap-2'>
       <h1 className="text-2xl text-center">All Homeworks </h1>
       {homework.map(el => (
-        <HomeworkCard key={el.id} homework={el} openEdit={openEdit}/>
+        <HomeworkCard key={el.id} homework={el} openEdit={openEdit} setReload={setReload}/>
       ))
 
       }
