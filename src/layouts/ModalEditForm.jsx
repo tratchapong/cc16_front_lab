@@ -3,8 +3,9 @@ import { useState, useEffect } from 'react'
 import DatePicker from "react-datepicker";
 
 export default function ModalEditForm(props) {
-  const {editData, closeEdit} = props
-  console.log('******',editData.id)
+  
+  const {editData, closeEdit, setReload} = props
+  console.log('******', editData.id)
   const [subject, setSubject] = useState([])
   const [input, setInput] = useState({
     subject_id: "",
@@ -31,7 +32,7 @@ export default function ModalEditForm(props) {
       duedate: editData.dueDate ? new Date(editData.duedate) :new Date(),
       published: editData.published
     })
-  }, [editData.id])
+  }, [editData.id,editData.question,editData.startdate,editData.dueDate,editData.published])
   const hdlChange = e => {
     setInput(prv => ({ ...prv, [e.target.name]: e.target.value }))
   }
@@ -40,11 +41,11 @@ export default function ModalEditForm(props) {
     try {
       e.preventDefault()
       const token = localStorage.getItem('token')
-      // const rs= await axios.put('http://localhost:8888/homework', input, {
-      //   headers : { Authorization : `Bearer ${token}` }
-      // })
-
+      const rs= await axios.put(`http://localhost:8888/homework/${editData.id}`, input, {
+        headers : { Authorization : `Bearer ${token}` }
+      })
       closeEdit()
+      setReload(prv => !prv)
     }catch(err) {
       console.log(err)
     }

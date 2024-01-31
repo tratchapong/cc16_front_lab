@@ -7,6 +7,7 @@ function TeacherHome() {
   const [homework, setHomework] = useState([])
   const [loading, setLoading] = useState(true)
   const [editData, setEditData] = useState({})
+  const [reload, setReload] = useState(false)
 
   useEffect(() => {
     (async () => {
@@ -23,7 +24,7 @@ function TeacherHome() {
         setLoading(false)
       }
     })()
-  }, [])
+  }, [reload])
 
   const openEdit = (el) => {
     document.getElementById('edit_modal').showModal()
@@ -52,7 +53,7 @@ function TeacherHome() {
       <>
         <dialog id="edit_modal" className="modal">
           <div className="modal-box">
-            <ModalEditForm editData={editData} closeEdit={closeEdit}/>
+            {editData?.id && <ModalEditForm editData={editData} closeEdit={closeEdit} setReload={setReload}/>} 
           </div>
           <form method="dialog" className="modal-backdrop">
             <button>close</button>
