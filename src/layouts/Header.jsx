@@ -31,7 +31,7 @@ export default function Header() {
     return (
         <div className="navbar bg-base-100">
             <div className="flex-1">
-                <a className="btn btn-ghost text-xl">Super HW</a>
+                <a className="btn btn-ghost text-xl">Hi,{user?.firstname}</a>
                 <input type="checkbox" value="dark" className="toggle theme-controller"/>
 
             </div>
