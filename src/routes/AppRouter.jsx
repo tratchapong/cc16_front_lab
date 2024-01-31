@@ -4,6 +4,7 @@ import LoginForm from '../layouts/LoginForm'
 import RegisterForm from '../layouts/RegisterForm'
 import Header from '../layouts/Header'
 import useAuth from '../hooks/useAuth'
+import HomeworkForm from '../layouts/HomeworkForm'
 
 const routerGuest = createBrowserRouter([
     {
@@ -31,7 +32,7 @@ const routerTeacher = createBrowserRouter([
         errorElement: <Navigate to='/' />,
         children: [
             { index: true, element: <p>TeacherHome</p> },
-            { path: '/new', element: <p>NewHomework</p> },
+            { path: '/new', element: <HomeworkForm /> },
         ]
     }
 ])
